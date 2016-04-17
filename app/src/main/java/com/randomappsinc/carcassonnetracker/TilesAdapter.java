@@ -53,7 +53,6 @@ public class TilesAdapter extends BaseAdapter {
 
     public void resetTiles() {
         tiles = TileServer.get().initialize();
-        refreshUI();
     }
 
     @Override

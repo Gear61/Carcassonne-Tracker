@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.reset_tiles:
                 tilesAdapter.resetTiles();
+                tilesAdapter.refreshList(emptiesToggle.isChecked(), searchInput.getText().toString().trim());
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

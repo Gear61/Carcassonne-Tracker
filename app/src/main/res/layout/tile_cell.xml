@@ -27,14 +27,14 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/up_caret"
-            android:textSize="25dp"
+            android:textSize="36dp"
             android:textColor="@color/dark_gray"/>
 
         <TextView
             android:id="@+id/count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16dp"
+            android:textSize="24dp"
             android:textColor="@color/dark_gray"/>
 
         <com.joanzapata.iconify.widget.IconTextView
@@ -44,7 +44,7 @@
             android:gravity="center"
             android:padding="10dp"
             android:text="@string/down_caret"
-            android:textSize="25dp"
+            android:textSize="36dp"
             android:textColor="@color/dark_gray"/>
     </LinearLayout>
 </FrameLayout>
