@@ -3,10 +3,14 @@ package com.randomappsinc.carcassonnetracker;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.joanzapata.iconify.IconDrawable;
+import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.rey.material.widget.CheckBox;
 
 import butterknife.Bind;
@@ -45,5 +49,26 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.empties_toggle)
     public void toggleFavorites() {
         tilesAdapter.refreshList(emptiesToggle.isChecked(), searchInput.getText().toString().trim());
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.reset_tiles).setIcon(
+                new IconDrawable(this, FontAwesomeIcons.fa_refresh)
+                        .colorRes(R.color.white)
+                        .actionBarSize());
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.reset_tiles:
+                tilesAdapter.resetTiles();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

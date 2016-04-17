@@ -19,6 +19,13 @@ public class Tile implements Comparable<Tile>{
         this.numRemaining = initialAmount;
     }
 
+    public Tile(Tile tile) {
+        this.name = tile.getName();
+        this.resourceId = tile.getResourceId();
+        this.initialAmount = tile.getInitialAmount();
+        this.numRemaining = this.initialAmount;
+    }
+
     public String getName() {
         return name;
     }
@@ -35,7 +42,7 @@ public class Tile implements Comparable<Tile>{
         return numRemaining;
     }
 
-    public void lowerNumRemaining() {
+    public void decreaseNumRemaining() {
         if (numRemaining > 0) {
             numRemaining--;
             numInPlay++;
@@ -47,11 +54,6 @@ public class Tile implements Comparable<Tile>{
             numRemaining++;
             numInPlay--;
         }
-    }
-
-    public void resetTile() {
-        numRemaining = initialAmount;
-        numInPlay = 0;
     }
 
     @Override

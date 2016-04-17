@@ -8,10 +8,12 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by alexanderchiou on 4/17/16.
@@ -20,21 +22,19 @@ public class TilesAdapter extends BaseAdapter {
     private Context context;
     private View noContent;
     private List<Tile> tiles;
+    private boolean ignoreEmpties;
 
     public TilesAdapter(Context context, View noContent) {
         this.context = context;
         this.noContent = noContent;
-        refreshList(false, "");
+        this.tiles = TileServer.get().initialize();
+        setNoContent();
     }
 
     public void refreshList(boolean ignoreEmpties, String searchTerm) {
-        if (!ignoreEmpties && searchTerm.isEmpty()) {
-            tiles = TileServer.get().getTileList();
-        } else {
-            tiles = TileServer.get().getFilteredTiles(ignoreEmpties, searchTerm);
-        }
-        notifyDataSetChanged();
-        setNoContent();
+        this.ignoreEmpties = ignoreEmpties;
+        tiles = TileServer.get().getFilteredTiles(ignoreEmpties, searchTerm);
+        refreshUI();
     }
 
     public void setNoContent() {
@@ -43,6 +43,17 @@ public class TilesAdapter extends BaseAdapter {
         } else {
             noContent.setVisibility(View.GONE);
         }
+    }
+
+    public void refreshUI() {
+        Collections.sort(tiles);
+        notifyDataSetChanged();
+        setNoContent();
+    }
+
+    public void resetTiles() {
+        tiles = TileServer.get().initialize();
+        refreshUI();
     }
 
     @Override
@@ -75,6 +86,22 @@ public class TilesAdapter extends BaseAdapter {
             Tile tile = getItem(position);
             tileImage.setImageResource(tile.getResourceId());
             numLeft.setText(String.valueOf(tile.getNumRemaining()));
+        }
+
+        @OnClick(R.id.count_increment)
+        public void increaseCount() {
+            getItem(position).increaseNumRemaining();
+            refreshUI();
+        }
+
+        @OnClick(R.id.count_decrement)
+        public void decreaseCount() {
+            Tile tile = getItem(position);
+            tile.decreaseNumRemaining();
+            if (ignoreEmpties && tile.getNumRemaining() <= 0) {
+                tiles.remove(position);
+            }
+            refreshUI();
         }
     }
 

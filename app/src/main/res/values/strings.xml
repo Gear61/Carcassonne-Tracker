@@ -9,4 +9,6 @@
     <string name="clear_icon">{fa-remove}</string>
     <string name="up_caret">{fa-caret-up}</string>
     <string name="down_caret">{fa-caret-down}</string>
+
+    <string name="reset_tiles">Reset tiles</string>
 </resources>

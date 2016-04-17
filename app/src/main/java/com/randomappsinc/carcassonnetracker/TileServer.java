@@ -18,6 +18,7 @@ public class TileServer {
     }
 
     private List<Tile> tiles;
+    private List<Tile> currentTiles;
 
     private TileServer () {
         tiles = new ArrayList<>();
@@ -78,13 +79,22 @@ public class TileServer {
         Collections.sort(tiles);
     }
 
-    public List<Tile> getTileList() {
-        return tiles;
+    private List<Tile> getFreshTileList() {
+        List<Tile> freshTiles = new ArrayList<>();
+        for (Tile tile : tiles) {
+            freshTiles.add(new Tile(tile));
+        }
+        return freshTiles;
+    }
+
+    public List<Tile> initialize() {
+        currentTiles = getFreshTileList();
+        return currentTiles;
     }
 
     public List<Tile> getFilteredTiles(boolean ignoreEmpties, String searchTerm) {
         List<Tile> filteredTiles = new ArrayList<>();
-        for (Tile tile : tiles) {
+        for (Tile tile : currentTiles) {
             if (tile.getName().toLowerCase().contains(searchTerm.toLowerCase())) {
                 if (ignoreEmpties) {
                     if (tile.getNumRemaining() > 0) {
