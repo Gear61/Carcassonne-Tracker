@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Carcassonne Tracker</string>
+
+    <string name="search">Search</string>
+    <string name="only_remaining">Only show remaining tiles</string>
+    <string name="no_tiles">There are no remaining tiles to display.</string>
+
+    <!-- Icons -->
+    <string name="clear_icon">{fa-remove}</string>
 </resources>
