@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp">
+
+    <ImageView
+        android:id="@+id/tile_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_vertical"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:layout_gravity="end|center_vertical">
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/count_increment"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/up_caret"
+            android:textSize="25dp"
+            android:textColor="@color/dark_gray"/>
+
+        <TextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16dp"
+            android:textColor="@color/dark_gray"/>
+
+        <com.joanzapata.iconify.widget.IconTextView
+            android:id="@+id/count_decrement"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/down_caret"
+            android:textSize="25dp"
+            android:textColor="@color/dark_gray"/>
+    </LinearLayout>
+</FrameLayout>

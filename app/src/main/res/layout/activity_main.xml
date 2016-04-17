@@ -42,7 +42,7 @@
     </FrameLayout>
 
     <com.rey.material.widget.CheckBox
-        android:id="@+id/favorites_toggle"
+        android:id="@+id/empties_toggle"
         android:layout_marginTop="5dp"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
@@ -54,19 +54,18 @@
         app:cbd_tickColor="@color/white"/>
 
     <TextView
-        android:id="@+id/no_soundbites"
+        android:id="@+id/no_tiles"
         android:padding="25dp"
         android:text="@string/no_tiles"
         android:textColor="@color/dark_gray"
         android:textSize="22sp"
-        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"/>
 
     <ListView
-        android:id="@+id/soundbites"
+        android:id="@+id/tiles"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

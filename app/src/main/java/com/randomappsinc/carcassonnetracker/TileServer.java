@@ -78,11 +78,23 @@ public class TileServer {
         Collections.sort(tiles);
     }
 
-    private List<Tile> getPristineTileList() {
-        List<Tile> freshTiles = new ArrayList<>();
+    public List<Tile> getTileList() {
+        return tiles;
+    }
+
+    public List<Tile> getFilteredTiles(boolean ignoreEmpties, String searchTerm) {
+        List<Tile> filteredTiles = new ArrayList<>();
         for (Tile tile : tiles) {
-            freshTiles.add(new Tile(tile));
+            if (tile.getName().toLowerCase().contains(searchTerm.toLowerCase())) {
+                if (ignoreEmpties) {
+                    if (tile.getNumRemaining() > 0) {
+                        filteredTiles.add(tile);
+                    }
+                } else {
+                    filteredTiles.add(tile);
+                }
+            }
         }
-        return freshTiles;
+        return filteredTiles;
     }
 }
