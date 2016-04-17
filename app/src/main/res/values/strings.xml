@@ -11,4 +11,11 @@
     <string name="down_caret">{fa-caret-down}</string>
 
     <string name="reset_tiles">Reset tiles</string>
+
+    <!-- Tile info -->
+    <string name="tile_info">Tile Info</string>
+    <string name="name">Name:&#160;</string>
+    <string name="starting_amount">Starting amount:&#160;</string>
+    <string name="remaining">Remaining:&#160;</string>
+    <string name="in_play">In play:&#160;</string>
 </resources>

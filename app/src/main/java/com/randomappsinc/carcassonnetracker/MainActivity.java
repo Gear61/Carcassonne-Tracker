@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.rey.material.widget.CheckBox;
@@ -16,6 +17,7 @@ import com.rey.material.widget.CheckBox;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import butterknife.OnItemClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,6 +51,16 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.empties_toggle)
     public void toggleFavorites() {
         tilesAdapter.refreshList(emptiesToggle.isChecked(), searchInput.getText().toString().trim());
+    }
+
+    @OnItemClick(R.id.tiles)
+    public void onTileClicked(int position) {
+        Tile tile = tilesAdapter.getItem(position);
+        new MaterialDialog.Builder(this)
+                .title(R.string.tile_info)
+                .content(tile.getInfoBlurb())
+                .positiveText(android.R.string.yes)
+                .show();
     }
 
     @Override
