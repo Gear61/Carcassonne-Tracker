@@ -46,7 +46,6 @@ public class TilesAdapter extends BaseAdapter {
     }
 
     public void refreshUI() {
-        Collections.sort(tiles);
         notifyDataSetChanged();
         setNoContent();
     }

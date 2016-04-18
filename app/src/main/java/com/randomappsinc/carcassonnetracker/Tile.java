@@ -60,10 +60,10 @@ public class Tile implements Comparable<Tile>{
     public String getInfoBlurb() {
         Context context = MyApplication.getAppContext();
 
-        return context.getString(R.string.name) + name + "\n\n"
-                + context.getString(R.string.starting_amount) + String.valueOf(initialAmount) + "\n\n"
-                + context.getString(R.string.remaining) + String.valueOf(numRemaining) + "\n\n"
-                + context.getString(R.string.in_play) + String.valueOf(numInPlay);
+        return "<p><b>" + context.getString(R.string.name) + "</b>" + name + "</p>"
+                + "<p><b>" + context.getString(R.string.starting_amount) + "</b>" + String.valueOf(initialAmount) + "</p>"
+                + "<p><b>" + context.getString(R.string.remaining) + "</b>" + String.valueOf(numRemaining) + "</p>"
+                + "<b>" + context.getString(R.string.in_play) + "</b>" + String.valueOf(numInPlay);
     }
 
     @Override
