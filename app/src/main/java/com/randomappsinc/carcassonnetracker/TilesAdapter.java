@@ -8,10 +8,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.Collections;
 import java.util.List;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -19,13 +18,12 @@ import butterknife.OnClick;
  * Created by alexanderchiou on 4/17/16.
  */
 public class TilesAdapter extends BaseAdapter {
-    private Context context;
+
     private View noContent;
     private List<Tile> tiles;
     private boolean ignoreEmpties;
 
-    public TilesAdapter(Context context, View noContent) {
-        this.context = context;
+    public TilesAdapter(View noContent) {
         this.noContent = noContent;
         this.tiles = TileServer.get().initialize();
         setNoContent();
@@ -70,8 +68,8 @@ public class TilesAdapter extends BaseAdapter {
     }
 
     public class TileViewHolder {
-        @Bind(R.id.tile_image) ImageView tileImage;
-        @Bind(R.id.count) TextView numLeft;
+        @BindView(R.id.tile_image) ImageView tileImage;
+        @BindView(R.id.count) TextView numLeft;
 
         private int position;
 
@@ -107,7 +105,7 @@ public class TilesAdapter extends BaseAdapter {
     public View getView(int position, View view, ViewGroup parent) {
         TileViewHolder holder;
         if (view == null) {
-            LayoutInflater vi = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            LayoutInflater vi = (LayoutInflater) parent.getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = vi.inflate(R.layout.tile_cell, parent, false);
             holder = new TileViewHolder(view);
             view.setTag(holder);

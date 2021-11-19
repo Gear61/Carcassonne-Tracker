@@ -4,30 +4,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="10dp"
+    android:padding="8dp"
     android:orientation="vertical"
     android:background="@color/white"
     android:focusable="true"
-    android:focusableInTouchMode="true">
+    android:focusableInTouchMode="true"
+    >
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <EditText
             android:id="@+id/search_input"
             android:background="@drawable/text_input_border"
-            android:paddingLeft="10dp"
-            android:paddingTop="10dp"
-            android:paddingBottom="10dp"
-            android:paddingRight="35dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:paddingRight="36dp"
             android:hint="@string/search"
             android:singleLine="true"
             android:imeOptions="actionDone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/dark_gray"
-            android:textSize="18dp"/>
+            android:textSize="17sp"
+            />
 
         <com.joanzapata.iconify.widget.IconTextView
             android:id="@+id/clear_search"
@@ -38,7 +41,8 @@
             android:gravity="center"
             android:layout_gravity="center_vertical|right"
             android:text="@string/clear_icon"
-            android:textColor="@color/app_blue"/>
+            android:textColor="@color/app_blue"
+            />
     </FrameLayout>
 
     <com.rey.material.widget.CheckBox
@@ -51,7 +55,8 @@
         android:textColor="@color/app_blue"
         app:cbd_animDuration="150"
         app:cbd_strokeColor="@color/app_blue"
-        app:cbd_tickColor="@color/white"/>
+        app:cbd_tickColor="@color/white"
+        />
 
     <TextView
         android:id="@+id/no_tiles"
@@ -62,11 +67,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal"
+        />
 
     <ListView
         android:id="@+id/tiles"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="4dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        />
 </LinearLayout>

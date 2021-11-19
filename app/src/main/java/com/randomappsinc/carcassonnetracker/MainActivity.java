@@ -1,7 +1,7 @@
 package com.randomappsinc.carcassonnetracker;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.Html;
 import android.view.Menu;
@@ -15,17 +15,18 @@ import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import com.rey.material.widget.CheckBox;
 
-import butterknife.Bind;
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnItemClick;
 import butterknife.OnTextChanged;
 
 public class MainActivity extends AppCompatActivity {
-    @Bind(R.id.search_input) EditText searchInput;
-    @Bind(R.id.empties_toggle) CheckBox emptiesToggle;
-    @Bind(R.id.no_tiles) View noTiles;
-    @Bind(R.id.tiles) ListView tilesList;
+
+    @BindView(R.id.search_input) EditText searchInput;
+    @BindView(R.id.empties_toggle) CheckBox emptiesToggle;
+    @BindView(R.id.no_tiles) View noTiles;
+    @BindView(R.id.tiles) ListView tilesList;
 
     private TilesAdapter tilesAdapter;
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        tilesAdapter = new TilesAdapter(this, noTiles);
+        tilesAdapter = new TilesAdapter(noTiles);
         tilesList.setAdapter(tilesAdapter);
     }
 

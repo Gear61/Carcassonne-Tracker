@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Carcassonne-Tracker.iml" filepath="$PROJECT_DIR$/Carcassonne-Tracker.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Carcassonne-Tracker.iml" filepath="$PROJECT_DIR$/.idea/modules/Carcassonne-Tracker.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Carcassonne-Tracker.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Carcassonne-Tracker.app.iml" />
     </modules>
   </component>
 </project>
