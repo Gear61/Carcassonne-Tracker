@@ -77,13 +77,11 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.reset_tiles:
-                tilesAdapter.resetTiles();
-                tilesAdapter.refreshList(emptiesToggle.isChecked(), searchInput.getText().toString().trim());
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.reset_tiles) {
+            tilesAdapter.resetTiles();
+            tilesAdapter.refreshList(emptiesToggle.isChecked(), searchInput.getText().toString().trim());
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }
