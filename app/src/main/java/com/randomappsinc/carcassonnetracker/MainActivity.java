@@ -48,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     @OnClick(R.id.clear_search)
     public void clearSearch() {
+        UIUtils.hideKeyboard(this);
         searchInput.setText("");
     }
 
