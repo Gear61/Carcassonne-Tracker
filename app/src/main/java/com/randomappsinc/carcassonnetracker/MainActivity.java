@@ -6,6 +6,7 @@ import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -39,6 +40,15 @@ public class MainActivity extends AppCompatActivity {
 
         tilesAdapter = new TilesAdapter(noTiles);
         tilesList.setAdapter(tilesAdapter);
+        tilesList.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+                UIUtils.hideKeyboard(MainActivity.this);
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {}
+        });
     }
 
     @OnTextChanged(value = R.id.search_input, callback = OnTextChanged.Callback.AFTER_TEXT_CHANGED)
