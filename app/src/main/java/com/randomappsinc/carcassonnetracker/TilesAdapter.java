@@ -19,7 +19,7 @@ import butterknife.OnClick;
  */
 public class TilesAdapter extends BaseAdapter {
 
-    private View noContent;
+    private final View noContent;
     private List<Tile> tiles;
     private boolean ignoreEmpties;
 

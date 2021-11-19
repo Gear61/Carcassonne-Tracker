@@ -17,7 +17,7 @@ public class TileServer {
         return instance;
     }
 
-    private List<Tile> tiles;
+    private final List<Tile> tiles;
     private List<Tile> currentTiles;
 
     private TileServer () {

@@ -1,7 +1,6 @@
 package com.randomappsinc.carcassonnetracker;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.Html;
 import android.view.Menu;
@@ -9,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.joanzapata.iconify.IconDrawable;
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         Tile tile = tilesAdapter.getItem(position);
         new MaterialDialog.Builder(this)
                 .title(R.string.tile_info)
-                .content(Html.fromHtml(tile.getInfoBlurb()))
+                .content(Html.fromHtml(tile.getInfoBlurb(this)))
                 .positiveText(android.R.string.yes)
                 .show();
     }

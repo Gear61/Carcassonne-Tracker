@@ -1,6 +1,7 @@
 package com.randomappsinc.carcassonnetracker;
 
 import android.content.Context;
+
 import androidx.annotation.NonNull;
 
 /**
@@ -57,9 +58,7 @@ public class Tile implements Comparable<Tile>{
         }
     }
 
-    public String getInfoBlurb() {
-        Context context = MyApplication.getAppContext();
-
+    public String getInfoBlurb(Context context) {
         return "<p><b>" + context.getString(R.string.name) + "</b>" + name + "</p>"
                 + "<p><b>" + context.getString(R.string.starting_amount) + "</b>" + String.valueOf(initialAmount) + "</p>"
                 + "<p><b>" + context.getString(R.string.remaining) + "</b>" + String.valueOf(numRemaining) + "</p>"
